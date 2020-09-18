@@ -2,20 +2,24 @@
 
 @section('content')
     @component('admin.components.table')
-        @slot('title', 'Listagem de Categorias')
-        @slot('create', route('categories.create'))
+        @slot('title', 'Listagem de Cursos')
+        @slot('create', route('courses.create'))
         @slot('head')
             <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
             <th></th>
         @endslot
         @slot('body')
-            @foreach($categories as $category)
+            @foreach($courses as $course)
                 <tr>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $course->name }}</td>
+                    <td>{{ $course->description }}</td>
+                    <td>{{ $course->category_id }}</td>
                     <td class="options"> 
-                        <a href="{{ route('categories.edit', $category->id ) }}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
-                        <a href="{{ route('categories.show', $category->id ) }}" class="btn btn-dark"><i class="fas fa-search"></i></a>
-                        <form action="{{ route('categories.destroy', $category->id) }}" class="form-delete" method="post">
+                        <a href="{{ route('courses.edit', $course->id ) }}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
+                        <a href="{{ route('courses.show', $course->id ) }}" class="btn btn-dark"><i class="fas fa-search"></i></a>
+                        <form action="{{ route('courses.destroy', $course->id) }}" class="form-delete" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>

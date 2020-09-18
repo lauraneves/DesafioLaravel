@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Category;
+use App\Course;
 
-class CategorySeeder extends Seeder
+class CourseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Category::class, 5)->create();
+        factory(App\Course::class, 5)->create();
     }
 }
