@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Category;
+use App\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('admin.courses.index',compact('courses'));
+        $users = User::all();
+        return view('admin.courses.index',compact('courses', 'users'));
     }
 
     /**
@@ -31,8 +33,9 @@ class CourseController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $users = User::all();
         $course = new Course();
-        return view('admin.courses.create',compact('course', 'categories'));
+        return view('admin.courses.create',compact('course', 'users','categories'));
     }
 
     /**

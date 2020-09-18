@@ -20,6 +20,12 @@ class User extends Authenticatable
     ];
 
 
+    public function courses() 
+    {
+        return $this->belongsToMany('App\Course', 'course_user', 'user_id', 'course_id');
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *
