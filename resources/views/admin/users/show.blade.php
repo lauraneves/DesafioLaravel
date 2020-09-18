@@ -12,5 +12,10 @@
 @push('scripts')
     <script>
         $('.form-control').attr('readonly',true);
+
+        $(".form-control").attr("disabled", true);
+        $('select[value]').each(function () {
+            $(this).val($(this).attr('value'));
+        });
     </script>
 @endpush

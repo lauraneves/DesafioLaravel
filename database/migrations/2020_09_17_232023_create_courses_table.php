@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->longText('description');
             $table->string('slug');
             $table->string('img');
-            // $table->string('video');
+            $table->string('video');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

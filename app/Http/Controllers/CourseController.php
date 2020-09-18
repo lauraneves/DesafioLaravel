@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Http\Requests\StoreCourseRequest;
@@ -97,6 +98,9 @@ class CourseController extends Controller
         if($request->hasFile('img')) {
             $extension = $request->img->getClientOriginalExtension();
             $namefile = "$slug.{$extension}";
+            
+            Storage::delete('public/img/' . $namefile);
+            
             $request->img->storeAs('public/img',$namefile);
             $data['img'] = $namefile;
         } else {

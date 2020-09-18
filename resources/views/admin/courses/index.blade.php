@@ -6,7 +6,6 @@
         @slot('create', route('courses.create'))
         @slot('head')
             <th>Nome</th>
-            <th>Descrição</th>
             <th>Categoria</th>
             <th></th>
         @endslot
@@ -14,8 +13,7 @@
             @foreach($courses as $course)
                 <tr>
                     <td>{{ $course->name }}</td>
-                    <td>{{ $course->description }}</td>
-                    <td>{{ $course->category_id }}</td>
+                    <td>{{ $course->category->name }}</td>
                     <td class="options"> 
                         <a href="{{ route('courses.edit', $course->id ) }}" class="btn btn-primary"><i class="fas fa-pen"></i></a>
                         <a href="{{ route('courses.show', $course->id ) }}" class="btn btn-dark"><i class="fas fa-search"></i></a>
